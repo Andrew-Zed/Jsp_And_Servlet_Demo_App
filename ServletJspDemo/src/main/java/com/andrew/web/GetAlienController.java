@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.andrew.web.dao.AlienDao;
 
@@ -22,10 +23,10 @@ public class GetAlienController extends HttpServlet {
 			AlienDao dao = new AlienDao();
 			Alien a1 = dao.getAlien(aid);
 			
-			request.setAttribute("alien", a1);
+			HttpSession session = request.getSession();
+			session.setAttribute("alien", a1);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("ShowAlien.jsp");
-			rd.forward(request, response);
+			response.sendRedirect("ShowAlien.jsp");
 			
 	}
 

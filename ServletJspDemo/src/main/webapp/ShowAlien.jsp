@@ -11,7 +11,7 @@
 	
 	<% 
 		
-		Alien a1 = (Alien)request.getAttribute("alien");
+		Alien a1 = (Alien)session.getAttribute("alien");
 	
 		out.print(a1);
 		
